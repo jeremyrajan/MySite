@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jeremy Rajan's Portfolio Website</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Londrina+Shadow' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+
+<script type="text/javascript" src="scripts/jquery.parallax-1.1.3.js"></script>
+<script type="text/javascript" src="scripts/jquery.localscroll-1.2.7-min.js"></script>
+<script type="text/javascript" src="scripts/jquery.scrollTo-1.4.2-min.js"></script>
+
+
+<!-- Add mousewheel plugin (this is optional) -->
+<script type="text/javascript" src="fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#nav').localScroll(800);
+	
+	//.parallax(xPosition, speedFactor, outerHeight) options:
+	//xPosition - Horizontal position of the element
+	//inertia - speed to move relative to vertical scroll. Example: 0.1 is one tenth the speed of scrolling, 2 is twice the speed of scrolling
+	//outerHeight (true/false) - Whether or not jQuery should use it's outerHeight option to determine when a section is in the viewport
+	$('#intro').parallax("50%", 0.1);
+	$('#second').parallax("50%", 0.1);
+	$('.bg').parallax("30%", 0.4);
+	$('#third').parallax("50%", 0.3);
+	$('.bg_2').parallax("2%", 0.3);
+
+})
+</script>
+
+<script>
+	$(document).ready(function() {
+	$(".fancybox").fancybox({
+		openEffect	: 'none',
+		closeEffect	: 'none'
+	});
+});
+</script>
+
+<script type="text/javascript" >
+	$(function() {
+	$(".send").click(function() {
+	var name = $("#name").val();
+	var email = $("#email").val();
+	var purpose = $("#purpose").val();
+	var comments = $("#comments").val();
+	var dataString = 'name='+ name + '&email=' + email + '&purpose=' + purpose + '&comments=' + comments;
+	
+	if(name=='' || email=='' || purpose=='' || comments=='')
+	{
+	$('.success').fadeOut(200).hide();
+	$('.error').fadeOut(200).show();
+	}
+	else
+	{
+	$.ajax({
+	type: "POST",
+	url: "send.php",
+	data: dataString,
+	success: function(){
+		$('.success').fadeIn(200).show();
+		$('.error').fadeOut(200).hide();
+		$('#name').attr('value','');
+		$("#email").attr('value','');
+		$("#comments").attr('value','');
+	  }
+	});
+	}
+	return false;
+	});
+	});
+</script>
+
+
+</head>
+
+<body>
+	<ul id="nav">
+		<li><a href="#intro" data-tooltip="Welcome" data-placement="left" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
+	    <li><a href="#second" data-tooltip="My Skill-Set" data-placement="left" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
+	    <li><a href="#third" data-tooltip="Projects" data-placement="left" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
+	    <li><a href="#fifth" data-tooltip="Get in Touch" data-placement="left" title="Next Section"><img src="images/dot.png" alt="Link" /></a></li>
+	</ul>
+	
+	<div id="intro">
+		<div class="story">
+	    	<div class="float-left" id="story1" style="background:#F3E485;padding:20px;opacity:0.9">
+			<h2>Hola! I am Jeremy</h2>
+	        <p>
+	        	AKA Jr! I am a Web developer and Designer who started his journey to develop fancy web apps 4 years ago. It all started
+	        	in 2009 when I got my first project to develop a static website for my Dad's company. Starting from designing using tables to DIV and
+	        	now using "Media Queries" to design responsive websites. Check out my projects <a href="#third">here</a>.
+	        </p>
+	        </div>
+	    </div> <!--.story-->
+	</div> <!--#intro-->
+	
+	<div id="second">
+		<div class="story"><div class="bg"></div>
+	    	<div class="float-right">
+	            <h2>My Skill-Set</h2>
+			        <ul id="skill">
+			        	<li><span class="expand html5"> <small>%70</small></span><em>PHP5</em></li>
+			            <li><span class="expand html5"> <small>%70</small></span><em>HTML 5</em></li>
+			            <li><span class="expand css3"> <small>%80</small></span><em>CSS 3 and LESS</em></li>
+			            <li><span class="expand jquery"> <small>%50</small></span><em>jQuery & Javascript</em></li>
+			            <li><span class="expand mysql"> <small>%40</small></span><em>MySQL</em></li>
+			            <li><span class="expand linux"> <small>%40</small></span><em>Linux Server Administration(Ubuntu)</em></li>
+			        </ul>
+			         <a target="_blank" class="more" href="http://tuts.jeremyrajan.com/about-me/">and more...</a>
+	        </div>
+	    </div> <!--.story-->
+	    <div class="float-left">
+	    	<h2 style="margin:0px !important;">I Have Experience In:</h2>
+	    	<span class="iknow"><img src="images/star.png" style="width:50px;"/> Joomla 1.5/2.5</span>
+	    	<span class="iknow"><img src="images/star.png" style="width:50px;"/> Codeignitor 2+</span>
+	    	<span class="iknow"><img src="images/star.png" style="width:50px;"/> Virtuemart 1.8/2+</span>
+	    	<span class="iknow"><img src="images/star.png" style="width:50px;"/> Wordpress 3+</span>
+	    </div>
+	    
+	</div> <!--#second-->
+	
+	<div id="third">
+		<div class="story" style="margin-top:-170px;overflow:hidden;">
+	    	<div class="float-left">
+	        	<h2>See My Works!</h2>
+	            <div id="wrapper">
+	            		<div class="pin">
+					      <a href="images/tuts.png" class="fancybox" rel="gallery1"><img src="images/tuts.png" /></a>
+					    </div>
+	            		<div class="pin">
+					      <a href="images/gnossem.png" class="fancybox" rel="gallery1"><img src="images/gnossem.png" /></a>
+					    </div>
+						<div class="pin">
+					      <a href="images/qme.png" class="fancybox" rel="gallery1"><img src="images/qme.png" /></a>
+					    </div>
+					    <div class="pin">
+					      <a href="images/my_drive.jpg" class="fancybox" rel="gallery1"><img src="images/my_drive.jpg" /></a>
+					    </div>
+					    <div class="pin">
+					      <a href="images/Rawgates_jpg.jpg" class="fancybox" rel="gallery1"><img src="images/Rawgates_jpg.jpg" /></a>
+					    </div>
+					    <div class="pin">
+					      <a href="images/lawguru_jpg.jpg" class="fancybox" rel="gallery1"><img src="images/lawguru_jpg.jpg" /></a>
+					    </div>
+					    <div class="pin">
+					      <a href="images/GPM_jpg.jpg" class="fancybox" rel="gallery1"><img src="images/GPM_jpg.jpg" /></a>
+					    </div>
+					    <div class="pin">
+					      <a href="images/bloom.png" class="fancybox" rel="gallery1"><img src="images/bloom.png" /></a>
+					    </div>
+				 </div>
+	        </div>
+	    </div> <!--.story-->
+	</div> <!--#third-->
+	
+	<div id="fifth"><div class="bg_2"></div>
+		<div class="story">
+		   <h2 style="margin-left: 10px;">Get In Touch!</h2>
+		   <div style="float:left;margin-left:10px;">
+			   <form method="post" name="form" id="form" data-validate="parsley">
+			   	<p><input id="email" type="text" placeholder="Email" name="email" data-trigger="change" data-required="true" data-type="email" /></p>
+			   	<p><input id="name" type="text" placeholder="Name" name="name" /></p>
+			   	<p><select id="purpose" name="purpose">
+			   		<option>Hire Me!</option>
+			   		<option>General Queries</option>
+			   		<option>Say Hi!</option>
+			   	</select></p>
+			   	<p><textarea id="comments" name="comments" cols="50" rows="10" data-trigger="keyup" data-rangelength="[20,200]" data-required="true"></textarea></p>
+			   	<span class="error" style="display:none;"> Oops! Something went wrong, please try again.</span>
+				<span class="success" style="display:none"> Your Message was sent successfully!</span>
+			   	<p><div class="send">Send</div></p>
+			   </form>
+		   </div>
+		   <div style="float:right" class="downloads">
+		   	<h2>Downloads</h2>
+		   	<ul>
+		   		<li><a href="docs/Resume (Jeremy Rajan) new.pdf">Download C.V</a></li>
+		   		<li><a href="#">Download this Template</a></li>
+		   	</ul>
+		   </div>
+	    </div> <!--.story-->
+	    
+	</div> <!--#fifth-->
+	
+	<!--bottom bar-->
+	<div class="bottom_bar">
+		<div class="float-left">
+			<a target="_blank" data-tooltip="Tuts@ Jr FB Page" data-placement="top" href="https://www.facebook.com/tutsatJR"><img src="images/facebook-logo.png"/></a>
+			<a target="_blank" data-tooltip="My Twitter Profile" data-placement="top" href="http://www.twitter.com/jeremyrajan"><img src="images/twitter-bird3.png"/></a>
+			<a target="_blank" data-tooltip="Tuts.jeremyrajan.com" data-placement="top" href="http://tuts.jeremyrajan.com"><img src="images/wordpress.png"/></a>
+			<a target="_blank" data-tooltip="My LinkedIn Profile" data-placement="top" href="http://lnkd.in/PZQVeb"><img src="images/linkedin-logo.png"/></a>
+		</div>
+		<div class="float-right">
+			<a href="#intro"><img src="images/back-to-top.png" alt="To Top"/></a>
+		</div>
+	</div>
+	<!--bottom bar-->
+	
+	<a target="_blank" href="https://github.com/jeremyrajan"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_green_007200.png" alt="Fork me on GitHub"></a>
+	
+</body>
+</html>
