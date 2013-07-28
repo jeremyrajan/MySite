@@ -8,8 +8,8 @@ $comments=$_POST['comments'];
 $to      = 'youremail@email.com';
 $subject = 'Message from '.$name;
 $message = $comments;
-$headers = 'From: webmaster@jeremyrajan.com' . "\r\n" .
-    'Reply-To: webmaster@jeremyrajan.com' . "\r\n" .
+$headers = 'From: webmaster@website.com' . "\r\n" .
+    'Reply-To: webmaster@website.com' . "\r\n" .
     'X-Mailer: PHP/' . phpversion();
 
 mail($to, $subject, $message, $headers);
