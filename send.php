@@ -5,7 +5,7 @@ $email=$_POST['email'];
 $purpose=$_POST['purpose'];
 $comments=$_POST['comments'];
 
-$to      = 'jeremyrajan@gmail.com';
+$to      = 'youremail@email.com';
 $subject = 'Message from '.$name;
 $message = $comments;
 $headers = 'From: webmaster@jeremyrajan.com' . "\r\n" .
