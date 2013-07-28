@@ -1,4 +1,4 @@
-Jeremyrajan.com Template file
+Jeremyrajan.com Template files
 ======
 For those who are interested in using the template for their projects or even use it in their portfolio websites. You are most welcome.
 
